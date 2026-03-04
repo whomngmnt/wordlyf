@@ -1,7 +1,7 @@
 {
     "name": "Wordly",
     "short_name": "Wordly",
-    "start_url": "/wordly/",
+    "start_url": "/wordly/?v=2",
     "display": "standalone",
     "background_color": "#f5f2ff",
     "theme_color": "#a78bfa",

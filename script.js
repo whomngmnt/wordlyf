@@ -15,6 +15,9 @@ let startX = 0;      // де палець/мишка почали рух
 let currentX = 0;    // на скільки пікселів зсунулись від початку
 let isDragging = false; // чи зараз відбувається перетягування
 
+// Встановлюємо початковий колір навбару
+document.getElementById('main-nav').classList.add('nav-home');
+
 
 // ============================================
 // ЗБЕРЕЖЕННЯ В ПАМ'ЯТЬ ТЕЛЕФОНУ
@@ -77,6 +80,14 @@ navButtons.forEach(btn => {
         navButtons.forEach(b => b.classList.remove('active'));
         // Додаємо активний стиль тільки на натиснуту кнопку
         e.currentTarget.classList.add('active');
+
+        // Змінюємо колір навбару залежно від екрану
+const nav = document.getElementById('main-nav');
+nav.className = ''; // скидаємо всі класи
+if (target === 'main-page') nav.classList.add('nav-home');
+if (target === 'learning')  nav.classList.add('nav-cards');
+if (target === 'add-word')  nav.classList.add('nav-add');
+if (target === 'dictionary') nav.classList.add('nav-words');
 
         // Залежно від екрану — оновлюємо потрібні дані
         if (target === 'learning') updateCard();
@@ -275,16 +286,14 @@ function updateDictionaryList() {
         const stars = '⭐'.repeat(word.progress) + '☆'.repeat(5 - word.progress);
 
         item.innerHTML = `
-            <div class="word-info" style="flex-direction:column; align-items:flex-start; gap:2px;">
-                <div style="display:flex; gap:10px; align-items:center;">
-                    <span class="word-eng">${word.english}</span>
-                    <span class="word-arrow">→</span>
-                    <span class="word-ukr">${word.ukrainian}</span>
-                </div>
-                <span class="word-stars">${stars} ${word.progress >= 5 ? '✅' : ''}</span>
-            </div>
-            <button class="delete-btn" onclick="deleteWord(${index})">🗑️</button>
-        `;
+    <div class="word-info" style="flex-direction:column; align-items:flex-start; gap:2px;">
+        <div style="display:flex; gap:10px; align-items:center;">
+            <span class="word-eng">${word.english}</span>
+            <span class="word-arrow">→</span>
+            <span class="word-ukr">${word.ukrainian}</span>
+        </div>
+    </div>
+`;
         wordList.appendChild(item);
     });
 }

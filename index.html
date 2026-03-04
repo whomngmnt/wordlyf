@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -8,107 +8,77 @@
     <script src="script.js" defer></script>
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Wordly">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Wordly">
 </head>
 <body>
 
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
 
     <main>
 
-        <!-- ЕКРАН 1: Головна -->
         <section id="main-page" class="main-section">
-            <h1 class="screen-title">Wordly 🌍</h1>
-            <p class="screen-subtitle">Твій особистий словник</p>
-
             <div class="stats-circle-wrapper">
                 <div class="stats-circle">
                     <span id="learned-count">0</span>
-                    <span class="stats-circle-label">вивчено</span>
+                    <span class="stats-circle-label">learned</span>
                 </div>
             </div>
-
-            <div class="stats-row">
-                <div class="stats-card">
-                    <span class="stats-number" id="in-progress-count">0</span>
-                    <span class="stats-label">в процесі</span>
-                </div>
-                <div class="stats-card">
-                    <span class="stats-number" id="total-count">0</span>
-                    <span class="stats-label">всього слів</span>
-                </div>
-            </div>
-
-            <button class="nav-button action-button" data-target="learning">
-                Почати вчити →
-            </button>
         </section>
 
-        <!-- ЕКРАН 2: Картки -->
         <section id="learning" class="main-section hidden">
-            <h1 class="screen-title">Картки 🃏</h1>
-            <p class="screen-subtitle">Натисни щоб побачити переклад</p>
             <div id="learning-card" class="flash-card">
                 <h2 id="card-eng">Word</h2>
-                <p id="card-ukr" class="hidden">Переклад</p>
+                <p id="card-ukr" class="hidden">Translation</p>
                 <div id="card-status"></div>
             </div>
             <div class="swipe-hints">
-                <span>❌ не знаю</span>
-                <span>знаю ✅</span>
+                <span>don't know</span>
+                <span>know</span>
             </div>
         </section>
 
-        <!-- ЕКРАН 3: Додати слово -->
         <section id="add-word" class="main-section hidden">
-            <h1 class="screen-title">Додати слово ✨</h1>
-            <p class="screen-subtitle">Введи слово — переклад знайдемо самі</p>
+            <h1 class="screen-title">Add word</h1>
+            <p class="screen-subtitle">Type a word — we'll find the translation</p>
 
-            <span class="input-label">Англійське слово</span>
-            <input type="text" id="new-word-input" placeholder="наприклад: butterfly" autocomplete="off">
+            <span class="input-label">English word</span>
+            <input type="text" id="new-word-input" placeholder="e.g. butterfly" autocomplete="off">
 
             <div class="translation-card">
-                <div class="translation-icon">🌍</div>
                 <div class="translation-content">
-                    <span class="translation-sublabel">Переклад</span>
+                    <span class="translation-sublabel">Translation</span>
                     <span id="translation-preview">translation</span>
                 </div>
             </div>
 
-            <button id="translate-button">Додати в словник →</button>
+            <button id="translate-button">Add to dictionary</button>
 
-            <div class="recent-title">Нещодавно додані</div>
+            <div class="recent-title">Recently added</div>
             <div id="word-list"></div>
         </section>
 
-        <!-- ЕКРАН 4: Словник -->
         <section id="dictionary" class="main-section hidden">
-            <h1 class="screen-title">Мої слова ✅</h1>
-            <p class="screen-subtitle">Всі слова та їх прогрес</p>
+            <h1 class="screen-title">My words</h1>
+            <p class="screen-subtitle">All words and their progress</p>
             <div id="word-list-dictionary"></div>
         </section>
 
     </main>
 
-    <nav>
+    <nav id="main-nav">
         <button class="nav-button" data-target="main-page">
-            <span>🏠</span>
-            <span>Головна</span>
+            <span>Home</span>
         </button>
         <button class="nav-button" data-target="learning">
-            <span>🃏</span>
-            <span>Картки</span>
+            <span>Cards</span>
         </button>
         <button class="nav-button" data-target="add-word">
-            <span>➕</span>
-            <span>Додати</span>
+            <span>Add</span>
         </button>
         <button class="nav-button" data-target="dictionary">
-            <span>✅</span>
-            <span>Вивчені</span>
+            <span>Words</span>
         </button>
     </nav>
 
